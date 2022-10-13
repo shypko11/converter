@@ -26,7 +26,7 @@
     "src/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx"
-  ],
+, "src/redux/store.js", "src/redux/rootReducer.js"  ],
   "exclude": [
     "**/__mocks__/*",
     "**/__tests__/*",

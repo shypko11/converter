@@ -1,11 +1,13 @@
 import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import Input from './../../components/input/index';
 import Button from '../../components/button';
 import Select from '../../components/select';
 
-import { getData } from '../../api/api';
+import { getAllList } from './../../redux/actions';
+import { State } from '../../types';
 
 import css from './index.module.css';
 
@@ -14,31 +16,32 @@ type Props = {
 };
 
 const Modal: React.FC<Props> = ({ title }) => {
+  const dispatch = useDispatch();
+
   const [firstVal, setFirstVal] = useState(100);
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [result, setResult] = useState(0);
-  const [allCurrency, setAllCurrency] = useState<null | Array<any>>(null);
+  const all = useSelector((state: State) => state?.list);
+
   const [options, setOptions] = useState<Array<any>>();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    getData().then((data) => {
-      setAllCurrency(data);
-    });
-  }, []);
+    dispatch(getAllList());
+  }, [dispatch]);
 
   useEffect(() => {
-    const opts = allCurrency?.map((curr) => {
+    const opts = all?.map((curr) => {
       return { value: curr.cc, name: curr.cc + ' - ' + curr.txt };
     });
     setOptions(opts);
-  }, [allCurrency]);
+  }, [all]);
 
   useEffect(() => {
-    const elem = allCurrency?.find((el) => el?.cc === selectedCurrency);
+    const elem = all?.find((el) => el?.cc === selectedCurrency);
     elem && setResult(firstVal * elem?.rate);
-  }, [firstVal, selectedCurrency, allCurrency]);
+  }, [firstVal, selectedCurrency, all]);
 
   const onChangeVal = (e: BaseSyntheticEvent) => {
     const newVal = e?.target?.value;

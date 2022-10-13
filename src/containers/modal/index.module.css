@@ -6,7 +6,6 @@
   padding: 30px 40px 40px 40px;
   margin-top: 96px;
   position: relative;
-
   flex-direction: column;
   height: fit-content;
 }
@@ -16,16 +15,6 @@
   color: var(--white);
   margin: 0 0 40px 0;
   text-align: center;
-  font-weight: 700;
-}
-
-.err {
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: red;
-  letter-spacing: 2px;
   font-weight: 700;
 }
 

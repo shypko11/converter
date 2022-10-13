@@ -1,0 +1,17 @@
+.root {
+  width: 706px;
+  background: var(--blue);
+  box-shadow: 0px 4px 31px 25px rgba(0, 0, 0, 0.03);
+  border-radius: 24px;
+  padding: 30px 40px 40px 40px;
+  margin-top: 96px;
+  position: relative;
+  flex-direction: column;
+  height: fit-content;
+}
+.root ul {
+  color: var(--white);
+  list-style: none;
+}
+.title {
+}
