@@ -26,7 +26,6 @@ const Input: React.FC<Props> = ({
             className={css.input}
             value={value}
             onChange={onChange}
-            min={20}
           />
         </div>
       </div>

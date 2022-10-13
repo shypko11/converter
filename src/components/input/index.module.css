@@ -30,19 +30,4 @@
   max-width: 100%;
 }
 
-.fakeSelect {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 34px;
-  text-transform: uppercase;
-}
 
-.img img {
-  margin-left: 14px;
-  display: block;
-}
-
-.img {
-  display: flex;
-}

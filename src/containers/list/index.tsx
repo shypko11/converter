@@ -17,7 +17,6 @@ const List: React.FC = () => {
 
   return (
     <div className={css.root}>
-      <p></p>
       <ul>
         {all.map((el) => {
           return <li>{el.rate + ' UAH - 1 ' + el.cc + ' - ' + el.txt} </li>;
